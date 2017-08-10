@@ -1,0 +1,232 @@
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    width: ($i/12) * 100%;
+  }
+}
+
+html {
+  font-family: 'Titillium Web', sans-serif;
+  background-color: rgb(68, 68, 68);
+}
+
+.clearfix {
+  clear: both;
+  display: table;
+  content: none;
+}
+@mixin inputs {
+  display: flex;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgb(222, 217, 217);
+  margin-top: 10px;
+  font-size: 20px;
+  padding-bottom: 20px;
+  margin-left: -10px;
+  padding-left: 10px;
+  color: rgb(77, 77, 78);
+}
+@media (max-width: 640px) {
+  .container-main {
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: 650px;
+    background-color: rgb(244, 244, 244);
+    margin-top: 30px;
+  }
+
+  .title-main {
+    font-size: 60px;
+    margin-left: 90px;
+    color: rgb(244, 244, 244)
+  }
+
+  .top-line {
+    position:absolute;
+    top: 18.5%;
+    left: 17%;
+    width: 100px;
+    border: 2px solid rgb(0, 255, 110);
+  }
+
+  .main-box {
+    margin-left: 70px;
+    margin-right: 50px;
+
+    .title {
+      display: inline-block;
+      font-size: 25px;
+      margin-top: 30px;
+      color: rgb(47, 47, 47);
+    }
+
+    .mini-title {
+      display: inline-block;
+      color: rgb(184, 184, 184);
+      font-size: 16px;
+      margin-top: 20px;
+      opacity: 0.5;
+      display: block;
+    }
+
+    .input-name,
+    .input-number,
+    .selectNumber {
+      @include inputs;
+    }
+
+    .input-name {
+      width: 100%;
+    }
+
+    .selectNumber {
+      background: transparent no-repeat scroll right bottom;
+      background-size: contain;
+      padding: 5px 10px;
+      display: inline-block;
+      padding-bottom: 20px;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+
+      option {
+        background-color: rgb(244, 244, 244);
+      }
+    }
+
+    .input-number {
+      display: inline-block;
+      width: 57%;
+      margin-left: 30px;
+      color: rgb(77, 77, 78);
+    }
+    @mixin checkGender {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: rgb(244, 244, 244);
+      border: 2px solid rgb(222, 217, 217);
+    }
+    @mixin checkGenderDot {
+      position: absolute;
+      border-radius: 50%;
+      width: 5px;
+      height: 5px;
+      background-color: rgb(222, 217, 217);
+    }
+
+    .icon-male:before {
+      content: '\e800';
+      position: relative;
+      font-size: 30px;
+      margin-top: 20px;
+      color: rgb(117, 117, 117);
+      border: 2px solid rgb(222, 217, 217);
+      padding: 20px;
+      margin-left: -12px;
+      float: left;
+      z-index: 0;
+      margin-bottom: 20px;
+    }
+    /* '' */
+    .icon-female:before {
+      content: '\e801';
+      position: relative;
+      font-size: 30px;
+      margin-top: 20px;
+      color: rgb(117, 117, 117);
+      border: 2px solid rgb(222, 217, 217);
+      padding: 20px;
+      margin-left: -12px;
+      float: left;
+      margin-left: 30px;
+      z-index: 0;
+    }
+    /* '' */
+    .border {
+      margin-top: 99px;
+    }
+
+    .square-check {
+      @include checkGender;
+      bottom: 19.5%;
+      left: 27%;
+      z-index: 2;
+    }
+
+    .dot-check {
+      @include checkGenderDot;
+      bottom: 20.9%;
+      left: 28.7%;
+      z-index: 2;
+    }
+
+    .square-check-fem {
+      @include checkGender;
+      bottom: 19.5%;
+      left: 46.5%;
+      z-index: 2;
+    }
+
+    .dot-check-fem {
+      @include checkGenderDot;
+      bottom: 20.9%;
+      left: 48.2%;
+      z-index: 2;
+    }
+
+    .color-changer-male {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      border: 2px solid rgb(0, 255, 110);
+      bottom: 15.8%;
+      left: 16%;
+      z-index: 1;
+      visibility: hidden;
+    }
+
+    .color-changer-female {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      border: 2px solid rgb(0, 255, 110);
+      bottom: 15.8%;
+      left: 35.2%;
+      z-index: 1;
+      visibility: hidden;
+    }
+
+    .input-day,
+    .input-month,
+    .input-year {
+      border: 2px solid rgb(222, 217, 217);
+      background-color: transparent;
+      width: 15%;
+      height: 50px;
+      padding: 8px;
+      margin-left: -12px;
+      margin-right: 40px;
+      margin-top: 20px;
+      font-size: 30px;
+      text-align: center;
+
+      &:focus {
+        border: 2px solid rgb(168, 0, 218);
+      }
+    }
+
+    .input-year {
+      width: 40%;
+      margin-right: 0;
+      text-align: left;
+    }
+
+    input:focus,
+    option:focus,
+    select:focus {
+      outline: none;
+      border-bottom: 2px solid rgb(168, 0, 218);
+    }
+  }
+}
